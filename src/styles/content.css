@@ -1,0 +1,172 @@
+/* Content script styles injected into Salesforce pages */
+
+.sfdt-inspector-active [data-target-selection-name],
+.sfdt-inspector-active [data-field-id],
+.sfdt-inspector-active lightning-output-field,
+.sfdt-inspector-active lightning-input-field {
+  cursor: crosshair !important;
+}
+
+.sfdt-field-highlight {
+  outline: 2px solid #1b96ff !important;
+  outline-offset: 2px;
+  border-radius: 4px;
+  background-color: rgba(27, 150, 255, 0.08) !important;
+  transition: outline-color 0.15s, background-color 0.15s;
+}
+
+/* Tooltip */
+.sfdt-tooltip {
+  position: absolute;
+  z-index: 999999;
+  transform: translate(-50%, -100%);
+  background: #1e293b;
+  color: #f1f5f9;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.sfdt-tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #1e293b;
+  border-bottom: none;
+}
+
+.sfdt-tooltip-api {
+  color: #38bdf8;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.sfdt-tooltip-obj {
+  color: #94a3b8;
+  font-size: 11px;
+}
+
+.sfdt-tooltip-hint {
+  color: #64748b;
+  font-size: 10px;
+  margin-top: 2px;
+}
+
+/* Copy feedback */
+.sfdt-copy-feedback {
+  position: absolute;
+  z-index: 999999;
+  transform: translate(-50%, -100%);
+  background: #059669;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-family: "SF Mono", monospace;
+  font-size: 12px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  animation: sfdt-fade-up 1.5s ease-out forwards;
+}
+
+@keyframes sfdt-fade-up {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -100%);
+  }
+  70% {
+    opacity: 1;
+    transform: translate(-50%, calc(-100% - 10px));
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, calc(-100% - 20px));
+  }
+}
+
+/* Quick Nav Overlay */
+.sfdt-quicknav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999999;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  padding-top: 15vh;
+  backdrop-filter: blur(2px);
+}
+
+.sfdt-quicknav-modal {
+  width: 560px;
+  max-height: 420px;
+  background: #1e293b;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.sfdt-quicknav-input {
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  background: #0f172a;
+  color: #f1f5f9;
+  font-size: 16px;
+  font-family: inherit;
+  outline: none;
+  border-bottom: 1px solid #334155;
+}
+
+.sfdt-quicknav-input::placeholder {
+  color: #64748b;
+}
+
+.sfdt-quicknav-results {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.sfdt-quicknav-item {
+  padding: 10px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #e2e8f0;
+  transition: background 0.1s;
+}
+
+.sfdt-quicknav-item:hover,
+.sfdt-quicknav-item.sfdt-active {
+  background: #334155;
+}
+
+.sfdt-quicknav-item-icon {
+  width: 24px;
+  text-align: center;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.sfdt-quicknav-item-label {
+  font-size: 14px;
+  flex: 1;
+}
+
+.sfdt-quicknav-item-hint {
+  font-size: 11px;
+  color: #64748b;
+}

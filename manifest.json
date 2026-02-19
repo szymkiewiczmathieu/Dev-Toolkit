@@ -1,0 +1,56 @@
+{
+  "manifest_version": 3,
+  "name": "SF Dev Toolkit",
+  "version": "0.1.0",
+  "description": "Salesforce Developer Toolkit - SOQL Runner, Field Inspector, Quick Navigation",
+  "author": "Mathieu Szymkiewicz <szymkiewiczmathieu@gmail.com>",
+  "permissions": [
+    "activeTab",
+    "sidePanel",
+    "storage",
+    "cookies"
+  ],
+  "host_permissions": [
+    "https://*.salesforce.com/*",
+    "https://*.force.com/*",
+    "https://*.lightning.force.com/*",
+    "https://*.my.salesforce.com/*",
+    "https://*.sandbox.my.salesforce.com/*"
+  ],
+  "background": {
+    "service_worker": "src/background/index.ts",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.salesforce.com/*",
+        "https://*.force.com/*",
+        "https://*.lightning.force.com/*"
+      ],
+      "js": ["src/content/index.ts"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "side_panel": {
+    "default_path": "src/sidepanel/index.html"
+  },
+  "icons": {
+    "16": "public/icons/icon16.png",
+    "48": "public/icons/icon48.png",
+    "128": "public/icons/icon128.png"
+  },
+  "action": {
+    "default_title": "SF Dev Toolkit"
+  },
+  "commands": {
+    "toggle-quick-nav": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+K",
+        "mac": "Command+Shift+K"
+      },
+      "description": "Open Quick Navigation"
+    }
+  }
+}
