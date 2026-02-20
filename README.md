@@ -15,8 +15,9 @@ A Chrome extension built for Salesforce developers and admins. Run SOQL queries,
 - Click any field on a Salesforce record page to inspect it
 - See API name, type, length, required, unique, formula, and more
 - View **translations** (FR / EN / ES) fetched live via SOAP API
-- See which Record Types use each picklist value
-- Custom field metadata (description, help text) via Tooling API
+- **Picklist values comparison table** with FR / EN / ES columns
+- **Inline translation editing** — edit EN/ES labels and picklist values, deploy directly via Metadata API
+- Custom field metadata (description, help text, indexed, history tracked) via Tooling API
 - Toggle inspect mode on/off with a single click
 
 ### Quick Navigation
@@ -32,7 +33,7 @@ A Chrome extension built for Salesforce developers and admins. Run SOQL queries,
 | UI Framework | [Svelte 5](https://svelte.dev) (runes) + TypeScript |
 | Extension | Chrome Manifest V3 (service worker, side panel, content scripts) |
 | Build | [Vite](https://vitejs.dev) + [@crxjs/vite-plugin](https://crxjs.dev/vite-plugin) |
-| Salesforce APIs | REST API, Tooling API, SOAP API (describeSObject with LocaleOptions) |
+| Salesforce APIs | REST API, Tooling API, SOAP API (describeSObject with LocaleOptions), Metadata API (deploy) |
 | Search | [Fuse.js](https://www.fusejs.io/) for fuzzy matching |
 
 ## Installation
@@ -115,6 +116,21 @@ src/
 ## Author
 
 **Mathieu Szymkiewicz** — [szymkiewiczmathieu@gmail.com](mailto:szymkiewiczmathieu@gmail.com)
+
+## Changelog
+
+### v0.2.0
+- Picklist values FR/EN/ES comparison table
+- Inline editing of field label translations (EN/ES) with deploy via Metadata API
+- Inline editing of picklist value translations (EN/ES) with deploy via Metadata API
+- Custom ZIP builder (no external dependency) for mdapi format deploy
+- Better deploy error extraction (componentFailures, faultstring)
+
+### v0.1.0
+- SOQL Runner with CodeMirror and autocomplete
+- Field Inspector with metadata details and FR/EN/ES label translations
+- Quick Navigation with fuzzy search (Ctrl+Shift+K)
+- Auto session detection (multi-strategy cookie scanning)
 
 ## License
 

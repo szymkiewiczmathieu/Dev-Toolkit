@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "SF Dev Toolkit",
-  "version": "0.1.0",
-  "description": "Salesforce Developer Toolkit - SOQL Runner, Field Inspector, Quick Navigation",
+  "version": "0.2.0",
+  "description": "Salesforce Developer Toolkit - SOQL Runner, Field Inspector with Translation Editor, Quick Navigation",
   "author": "Mathieu Szymkiewicz <szymkiewiczmathieu@gmail.com>",
   "permissions": [
     "activeTab",

@@ -1,7 +1,7 @@
 {
   "name": "sf-dev-toolkit",
-  "version": "0.1.0",
-  "description": "Salesforce Dev Toolkit - SOQL Runner, Field Inspector, Quick Nav",
+  "version": "0.2.0",
+  "description": "Salesforce Dev Toolkit - SOQL Runner, Field Inspector with Translation Editor, Quick Nav",
   "type": "module",
   "scripts": {
     "dev": "vite",
