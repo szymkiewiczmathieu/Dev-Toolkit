@@ -6,6 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "package": "node scripts/package.mjs",
+    "package:patch": "node scripts/package.mjs patch",
+    "package:minor": "node scripts/package.mjs minor",
+    "package:major": "node scripts/package.mjs major",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
